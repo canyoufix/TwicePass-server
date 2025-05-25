@@ -1,0 +1,308 @@
+{
+  "info": {
+    "name": "REST API for TwicePass-server",
+    "_postman_id": "123e4567-e89b-12d3-a456-426614174000",
+    "description": "Testing of the СRUD interface",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Notes - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"title\": \"Test Note\",\n  \"content\": \"This is a test note content.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/notes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["notes"]
+        }
+      }
+    },
+    {
+      "name": "Notes - Get All",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/notes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["notes"]
+        }
+      }
+    },
+    {
+      "name": "Notes - Get By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/notes/123e4567-e89b-12d3-a456-426614174000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["notes", "123e4567-e89b-12d3-a456-426614174000"]
+        }
+      }
+    },
+    {
+      "name": "Notes - Update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"title\": \"Updated Note Title\",\n  \"content\": \"Updated content here.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/notes/123e4567-e89b-12d3-a456-426614174000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["notes", "123e4567-e89b-12d3-a456-426614174000"]
+        }
+      }
+    },
+    {
+      "name": "Notes - Delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/notes/123e4567-e89b-12d3-a456-426614174000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["notes", "123e4567-e89b-12d3-a456-426614174000"]
+        }
+      }
+    },
+
+    {
+      "name": "Passwords - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174001\",\n  \"title\": \"example\",\n  \"url\": \"https://example.com\",\n  \"username\": \"user123\",\n  \"password\": \"password123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/passwords",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["passwords"]
+        }
+      }
+    },
+    {
+      "name": "Passwords - Get All",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/passwords",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["passwords"]
+        }
+      }
+    },
+    {
+      "name": "Passwords - Get By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/passwords/123e4567-e89b-12d3-a456-426614174001",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["passwords", "123e4567-e89b-12d3-a456-426614174001"]
+        }
+      }
+    },
+
+    {
+      "name": "Passwords - Update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174001\",\n  \"title\": \"Updated example\",\n  \"url\": \"https://updated-example.com\",\n  \"username\": \"newuser123\",\n  \"password\": \"newpassword123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/passwords/123e4567-e89b-12d3-a456-426614174001",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["passwords", "123e4567-e89b-12d3-a456-426614174001"]
+        }
+      }
+    },
+    {
+      "name": "Passwords - Delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/passwords/123e4567-e89b-12d3-a456-426614174001",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["passwords", "123e4567-e89b-12d3-a456-426614174001"]
+        }
+      }
+    },
+
+    {
+      "name": "Cards - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174002\",\n  \"title\": \"Visa\",\n  \"cardNumber\": \"1234123412341234\",\n  \"expiryDate\": \"12/25\",\n  \"cvc\": \"123\",\n  \"cardHolder\": \"Test Holder\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/cards",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["cards"]
+        }
+      }
+    },
+    {
+      "name": "Cards - Get All",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/cards",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["cards"]
+        }
+      }
+    },
+    {
+      "name": "Cards - Get By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/cards/123e4567-e89b-12d3-a456-426614174002",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["cards", "123e4567-e89b-12d3-a456-426614174002"]
+        }
+      }
+    },
+
+    {
+      "name": "Cards - Update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174002\",\n  \"title\": \"Visa Updated\",\n  \"cardNumber\": \"4321432143214321\",\n  \"expiryDate\": \"01/27\",\n  \"cvc\": \"456\",\n  \"cardHolder\": \"New Holder\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/cards/123e4567-e89b-12d3-a456-426614174002",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["cards", "123e4567-e89b-12d3-a456-426614174002"]
+        }
+      }
+    },
+    {
+      "name": "Cards - Delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/cards/123e4567-e89b-12d3-a456-426614174002",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["cards", "123e4567-e89b-12d3-a456-426614174002"]
+        }
+      }
+    }
+  ]
+}

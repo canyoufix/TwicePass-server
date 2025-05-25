@@ -1,1 +1,1 @@
-rootProject.name = "pass-server"
+rootProject.name = "TwicePass-server"

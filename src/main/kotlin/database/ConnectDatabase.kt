@@ -9,7 +9,7 @@ import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Application.initDatabase() {
-    Database.connect("jdbc:sqlite:pass-server.db", driver = "org.sqlite.JDBC")
+    Database.connect("jdbc:sqlite:TwicePass-server.db", driver = "org.sqlite.JDBC")
 
     transaction {
         SchemaUtils.create(PasswordEntity, CardEntity, NoteEntity)

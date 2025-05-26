@@ -7,7 +7,7 @@ import com.canyoufix.dto.CardDto
 import com.canyoufix.dto.NoteDto
 import com.canyoufix.dto.PasswordDto
 
-object EntityToDTO {
+object EntityToDto {
 
     fun NoteDao.toNoteDto(): NoteDto {
         return NoteDto(
@@ -31,10 +31,10 @@ object EntityToDTO {
         return CardDto(
             id = this.id.value,
             title = this.title,
-            cardNumber = this.cardNumber,
+            number = this.number,
             expiryDate = this.expiryDate,
             cvc = this.cvc,
-            cardHolder = this.cardHolder
+            holderName = this.holderName
         )
     }
 }

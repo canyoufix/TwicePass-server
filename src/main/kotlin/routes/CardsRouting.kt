@@ -1,11 +1,8 @@
 package com.canyoufix.routes
 
 import com.canyoufix.dao.CardDao
-import com.canyoufix.dao.NoteDao
 import com.canyoufix.dto.CardDto
-import com.canyoufix.dto.NoteDto
-import com.canyoufix.utils.EntityToDTO.toCardDto
-import com.canyoufix.utils.EntityToDTO.toNoteDto
+import com.canyoufix.utils.EntityToDto.toCardDto
 import io.ktor.server.response.*
 import io.ktor.server.request.*
 import io.ktor.server.routing.*
@@ -42,10 +39,10 @@ fun Route.cardsRouting() {
                 transaction {
                     CardDao.new(cardDto.id) {
                         title = cardDto.title
-                        cardNumber = cardDto.cardNumber
+                        number = cardDto.number
                         expiryDate = cardDto.expiryDate
                         cvc = cardDto.cvc
-                        cardHolder = cardDto.cardHolder
+                        holderName = cardDto.holderName
                     }
                 }
 
@@ -68,10 +65,10 @@ fun Route.cardsRouting() {
                 val card = CardDao.findById(idParam)
                 if (card != null) {
                     card.title = cardDto.title
-                    card.cardNumber = cardDto.cardNumber
+                    card.number = cardDto.number
                     card.expiryDate = cardDto.expiryDate
                     card.cvc = cardDto.cvc
-                    card.cardHolder = cardDto.cardHolder
+                    card.holderName = cardDto.holderName
                     true
                 } else {
                     false

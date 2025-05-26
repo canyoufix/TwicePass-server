@@ -217,7 +217,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174002\",\n  \"title\": \"Visa\",\n  \"cardNumber\": \"1234123412341234\",\n  \"expiryDate\": \"12/25\",\n  \"cvc\": \"123\",\n  \"cardHolder\": \"Test Holder\"\n}",
+          "raw": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174002\",\n  \"title\": \"Visa\",\n  \"number\": \"1234123412341234\",\n  \"expiryDate\": \"12/25\",\n  \"cvc\": \"123\",\n  \"holderName\": \"Test Holder\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -274,7 +274,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174002\",\n  \"title\": \"Visa Updated\",\n  \"cardNumber\": \"4321432143214321\",\n  \"expiryDate\": \"01/27\",\n  \"cvc\": \"456\",\n  \"cardHolder\": \"New Holder\"\n}",
+          "raw": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174002\",\n  \"title\": \"Visa Updated\",\n  \"number\": \"4321432143214321\",\n  \"expiryDate\": \"01/27\",\n  \"cvc\": \"456\",\n  \"holderName\": \"New Holder\"\n}",
           "options": {
             "raw": {
               "language": "json"

@@ -6,8 +6,8 @@ import kotlinx.serialization.Serializable
 data class CardDto(
     val id: String,
     val title: String,
-    val cardNumber: String,
+    val number: String,
     val expiryDate: String,
     val cvc: String,
-    val cardHolder: String
+    val holderName: String
 )

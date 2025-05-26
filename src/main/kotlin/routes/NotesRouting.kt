@@ -2,7 +2,7 @@ package com.canyoufix.routes
 
 import com.canyoufix.dao.NoteDao
 import com.canyoufix.dto.NoteDto
-import com.canyoufix.utils.EntityToDTO.toNoteDto
+import com.canyoufix.utils.EntityToDto.toNoteDto
 import io.ktor.server.response.*
 import io.ktor.server.request.*
 import io.ktor.server.routing.*

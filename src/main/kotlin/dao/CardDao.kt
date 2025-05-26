@@ -8,8 +8,8 @@ class CardDao(id: EntityID<String>) : Entity<String>(id) {
     companion object : EntityClass<String, CardDao>(CardEntity)
 
     var title by CardEntity.title
-    var cardNumber by CardEntity.cardNumber
+    var number by CardEntity.number
     var expiryDate by CardEntity.expiryDate
     var cvc by CardEntity.cvc
-    var cardHolder by CardEntity.cardHolder
+    var holderName by CardEntity.holderName
 }

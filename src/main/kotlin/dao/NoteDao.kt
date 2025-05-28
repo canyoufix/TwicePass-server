@@ -9,4 +9,7 @@ class NoteDao(id: EntityID<String>) : Entity<String>(id) {
 
     var title by NoteEntity.title
     var content by NoteEntity.content
+
+    var lastModified by NoteEntity.lastModified
+    var isDeleted by NoteEntity.isDeleted
 }

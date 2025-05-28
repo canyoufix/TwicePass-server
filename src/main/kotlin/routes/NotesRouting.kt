@@ -37,9 +37,11 @@ fun Route.notesRouting() {
                 val noteDto = call.receive<NoteDto>()
 
                 transaction {
-                    NoteDao.new(noteDto.id) { // Теперь принимает String напрямую
+                    NoteDao.new(noteDto.id) {
                         title = noteDto.title
                         content = noteDto.content
+                        lastModified = noteDto.lastModified
+                        isDeleted = noteDto.isDeleted
                     }
                 }
 
@@ -52,7 +54,6 @@ fun Route.notesRouting() {
             }
         }
 
-
         put("/{id}") {
             val idParam = call.parameters["id"] ?: return@put call.respondText(
                 "Missing id", status = HttpStatusCode.BadRequest
@@ -64,6 +65,8 @@ fun Route.notesRouting() {
                 if (note != null) {
                     note.title = noteDto.title
                     note.content = noteDto.content
+                    note.lastModified = noteDto.lastModified
+                    note.isDeleted = noteDto.isDeleted
                     true
                 } else {
                     false
@@ -76,17 +79,21 @@ fun Route.notesRouting() {
             }
         }
 
-
         delete("/{id}") {
             val idParam = call.parameters["id"] ?: return@delete call.respondText(
                 "Missing id", status = HttpStatusCode.BadRequest
             )
 
+            val noteDto = call.receive<NoteDto>()
             val deleted = transaction {
-                NoteDao.findById(idParam)?.let {
-                    it.delete()
+                val note = NoteDao.findById(idParam)
+                if (note != null) {
+                    note.isDeleted = noteDto.isDeleted
+                    note.lastModified = noteDto.lastModified
                     true
-                } ?: false
+                } else {
+                    false
+                }
             }
 
             if (!deleted) {
@@ -95,6 +102,5 @@ fun Route.notesRouting() {
                 call.respondText("Note deleted", status = HttpStatusCode.OK)
             }
         }
-
     }
 }

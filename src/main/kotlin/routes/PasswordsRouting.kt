@@ -42,6 +42,8 @@ fun Route.passwordsRouting() {
                         url = passwordDto.url
                         username = passwordDto.username
                         password = passwordDto.password
+                        lastModified = passwordDto.lastModified
+                        isDeleted = passwordDto.isDeleted
                     }
                 }
 
@@ -67,6 +69,8 @@ fun Route.passwordsRouting() {
                     password.url = passwordDto.url
                     password.username = passwordDto.username
                     password.password = passwordDto.password
+                    password.lastModified = passwordDto.lastModified
+                    password.isDeleted = passwordDto.isDeleted
                     true
                 } else {
                     false
@@ -84,13 +88,17 @@ fun Route.passwordsRouting() {
                 "Missing id", status = HttpStatusCode.BadRequest
             )
 
+            val passwordDto = call.receive<PasswordDto>()
             val deleted = transaction {
-                PasswordDao.findById(idParam)?.let {
-                    it.delete()
+                val password = PasswordDao.findById(idParam)
+                if (password != null) {
+                    password.isDeleted = passwordDto.isDeleted
+                    password.lastModified = passwordDto.lastModified
                     true
-                } ?: false
+                } else {
+                    false
+                }
             }
-
             if (!deleted) {
                 call.respondText("Password not found", status = HttpStatusCode.NotFound)
             } else {

@@ -11,4 +11,7 @@ class PasswordDao(id: EntityID<String>) : Entity<String>(id) {
     var url by PasswordEntity.url
     var username by PasswordEntity.username
     var password by PasswordEntity.password
+
+    var lastModified by PasswordEntity.lastModified
+    var isDeleted by PasswordEntity.isDeleted
 }

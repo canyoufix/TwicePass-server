@@ -2,6 +2,7 @@ package com.canyoufix.routes
 
 import com.canyoufix.dao.CardDao
 import com.canyoufix.dto.CardDto
+import com.canyoufix.entity.CardEntity
 import com.canyoufix.utils.EntityToDto.toCardDto
 import io.ktor.server.response.*
 import io.ktor.server.request.*
@@ -43,6 +44,8 @@ fun Route.cardsRouting() {
                         expiryDate = cardDto.expiryDate
                         cvc = cardDto.cvc
                         holderName = cardDto.holderName
+                        lastModified = cardDto.lastModified
+                        isDeleted = cardDto.isDeleted
                     }
                 }
 
@@ -69,6 +72,8 @@ fun Route.cardsRouting() {
                     card.expiryDate = cardDto.expiryDate
                     card.cvc = cardDto.cvc
                     card.holderName = cardDto.holderName
+                    card.lastModified = cardDto.lastModified
+                    card.isDeleted = cardDto.isDeleted
                     true
                 } else {
                     false
@@ -86,11 +91,16 @@ fun Route.cardsRouting() {
                 "Missing id", status = HttpStatusCode.BadRequest
             )
 
+            val cardDto = call.receive<CardDto>()
             val deleted = transaction {
-                CardDao.findById(idParam)?.let {
-                    it.delete()
+                val card = CardDao.findById(idParam)
+                if (card != null) {
+                    card.isDeleted = cardDto.isDeleted
+                    card.lastModified = cardDto.lastModified
                     true
-                } ?: false
+                } else {
+                    false
+                }
             }
 
             if (!deleted) {
@@ -101,3 +111,4 @@ fun Route.cardsRouting() {
         }
     }
 }
+

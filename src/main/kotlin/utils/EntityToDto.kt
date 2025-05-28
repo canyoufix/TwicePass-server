@@ -13,7 +13,9 @@ object EntityToDto {
         return NoteDto(
             id = this.id.value,
             title = this.title,
-            content = this.content
+            content = this.content,
+            lastModified = this.lastModified,
+            isDeleted = this.isDeleted
         )
     }
 
@@ -23,7 +25,9 @@ object EntityToDto {
             title = this.title,
             url = this.url,
             username = this.username,
-            password = this.password
+            password = this.password,
+            lastModified = this.lastModified,
+            isDeleted = this.isDeleted
         )
     }
 
@@ -34,7 +38,9 @@ object EntityToDto {
             number = this.number,
             expiryDate = this.expiryDate,
             cvc = this.cvc,
-            holderName = this.holderName
+            holderName = this.holderName,
+            lastModified = this.lastModified,
+            isDeleted = this.isDeleted
         )
     }
 }

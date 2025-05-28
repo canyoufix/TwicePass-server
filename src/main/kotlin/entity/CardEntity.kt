@@ -11,5 +11,8 @@ object CardEntity : IdTable<String>("cards") {
     val cvc = varchar("cvc", 255)
     val holderName = varchar("holder_name", 255)
 
+    val lastModified = long("last_modified")
+    val isDeleted = bool("is_deleted")
+
     override val primaryKey = PrimaryKey(id)
 }

@@ -10,5 +10,8 @@ object PasswordEntity : IdTable<String>("passwords") {
     val username = varchar("username", 255)
     val password = varchar("password", 255)
 
+    val lastModified = long("last_modified")
+    val isDeleted = bool("is_deleted")
+
     override val primaryKey = PrimaryKey(id)
 }

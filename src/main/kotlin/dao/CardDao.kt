@@ -12,4 +12,7 @@ class CardDao(id: EntityID<String>) : Entity<String>(id) {
     var expiryDate by CardEntity.expiryDate
     var cvc by CardEntity.cvc
     var holderName by CardEntity.holderName
+
+    var lastModified by CardEntity.lastModified
+    var isDeleted by CardEntity.isDeleted
 }

@@ -5,8 +5,12 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PasswordDto(
     val id: String,
+
     val title: String,
     val url: String,
     val username: String,
-    val password: String
+    val password: String,
+
+    val lastModified: Long,
+    val isDeleted: Boolean
 )
